@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titile %} New Article {% endblock %}
+    
+{% block content %} 
+        
+<form action="{% url 'articles:add_article' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" required placeholder="Article title" name="article_title"><br>
+    <textarea name="article_text" cols="30" rows="10" required placeholder="Text of Article"></textarea>
+    <br>
+    <button type="submit">Save article</button>
+</form>
+    
+{% endblock %}
